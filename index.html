@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Try Origamijs</title>
+  <style> #my-canvas { height: 500px; width: 500px; } </style>
+  <script src="origami.min.js"></script>
+</head>
+<body onload="init()">
+   
+    <script src="script.js"></script>
+  <button onclick="shape(this)" id="rect">Rectangle</button>
+  <button onclick="shape(this)"  id="cir">Circle</button>
+  <button onclick="tiles()" id="tiles">Create Tiles</button>
+  <canvas onmousedown="knowCord1(event)" onmouseup="knowCord2(event)" id="my-canvas"></canvas>
+  
+</body>
+</html>
