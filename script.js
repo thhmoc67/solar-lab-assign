@@ -85,7 +85,7 @@ if(sh == "circle"){
   origami('#my-canvas')
    .arc(pointX, pointY, radius, {
       background: '#E40068',
-      border: '2px solid #E9E9E9'
+      border: '1px solid #FFFFFF'
   },0, 2*Math.PI)  
   .draw();
   
@@ -108,7 +108,7 @@ if(sh == "rectangle"){
   origami('#my-canvas')
     .rect(pointX, pointY, width, height, {
     background: 'blue',
-    border: '1px solid #999'
+    border: '1px solid #FFFFFF'
   }).draw();
   
   
@@ -149,16 +149,28 @@ console.log(sh);
 
 //create tiles
 function tiles(){
-var unit=10;
-console.log( rectShape.point1.x + " " + rectShape.point1.y+" " + rectShape.width+ " " + rectShape.height);
-for(var i = rectShape.point1.x ; i + unit  <= rectShape.point2.x; i += unit){
-  for(var j = rectShape.point1.y ; j + unit  <= rectShape.point2.y; j += unit){
-    origami('#my-canvas')
-      .rect(i, j, unit, unit, {
-      background: 'blue',
-      border: '1px solid #999'
-    }).draw();
-    console.log( i + " " + j);
+  console.log( circleShape.radius + " " + rectShape.width)
+  if( circleShape.radius == 0 || rectShape.width == 0 ){
+
+    alert(" Be sure you are created rectangle and circle Both!!! ");
+    return ;
   }
-}
+  var unit=4;
+  console.log( rectShape.point1.x + " " + rectShape.point1.y+" " + rectShape.width+ " " + rectShape.height);
+  for(var i = rectShape.point1.x ; i + unit  <= rectShape.point2.x ; i += unit){
+    for(var j = rectShape.point1.y ; j + unit  <= rectShape.point2.y; j += unit){
+      origami('#my-canvas')
+        .rect(i, j, unit, unit, {
+        background: 'blue',
+        border: '1px solid #FFFFFF'
+      }).draw();
+      //console.log( i + " " + j);
+    }
+  }
+  origami('#my-canvas')
+  .arc(circleShape.point1.x, circleShape.point1.y, circleShape.radius, {
+     background: '#E40068',
+     border: '1px solid #FFFFFF'
+  },0, 2*Math.PI)  
+  .draw();
 }
